@@ -10,7 +10,6 @@ struct HomeView: View {
     @Query private var favorites: [FavoriteActivity]
 
     @State private var searchText = ""
-    @State private var showingFilters = false
     @State private var selectedSkills: Set<DevelopmentSkill> = []
     @State private var selectedEnergy: EnergyLevel? = nil
     @State private var maxMessLevel: Int = 3
@@ -52,6 +51,7 @@ struct HomeView: View {
                 VStack(alignment: .leading, spacing: 16) {
                     headerSection
                     searchBar
+                    filtersSection
                     resultsCount
 
                     ForEach(recommendedActivities) { scored in
@@ -70,13 +70,6 @@ struct HomeView: View {
                 .padding()
             }
             .background(Color.secondaryFill.opacity(0.3))
-            .sheet(isPresented: $showingFilters) {
-                FilterSheet(
-                    selectedSkills: $selectedSkills,
-                    selectedEnergy: $selectedEnergy,
-                    maxMessLevel: $maxMessLevel
-                )
-            }
         }
     }
 
@@ -99,16 +92,98 @@ struct HomeView: View {
                 .foregroundStyle(.secondary)
             TextField("Search activities...", text: $searchText)
                 .font(.subheadline)
-            Button { showingFilters = true } label: {
-                Image(systemName: hasActiveFilters ? "line.3.horizontal.decrease.circle.fill" : "line.3.horizontal.decrease.circle")
-                    .font(.title3)
-                    .foregroundStyle(hasActiveFilters ? .green : .secondary)
-            }
         }
         .padding(12)
         .background(Color.cardSurface)
         .clipShape(RoundedRectangle(cornerRadius: 12))
         .shadow(color: .black.opacity(0.04), radius: 4, y: 2)
+    }
+
+    private var filtersSection: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            VStack(alignment: .leading, spacing: 6) {
+                Text("Skills")
+                    .font(.caption.bold())
+                    .foregroundStyle(.secondary)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 6) {
+                        ForEach(DevelopmentSkill.allCases) { skill in
+                            Button {
+                                if selectedSkills.contains(skill) {
+                                    selectedSkills.remove(skill)
+                                } else {
+                                    selectedSkills.insert(skill)
+                                }
+                            } label: {
+                                HStack(spacing: 4) {
+                                    Image(systemName: skill.icon)
+                                        .font(.caption2)
+                                    Text(skill.displayName)
+                                        .font(.caption)
+                                }
+                                .padding(.horizontal, 10)
+                                .padding(.vertical, 6)
+                                .background(selectedSkills.contains(skill) ? Color.green : Color.cardSurface)
+                                .foregroundStyle(selectedSkills.contains(skill) ? .white : .primary)
+                                .clipShape(Capsule())
+                                .shadow(color: .black.opacity(0.04), radius: 2, y: 1)
+                            }
+                        }
+                    }
+                }
+            }
+
+            VStack(alignment: .leading, spacing: 6) {
+                Text("Energy")
+                    .font(.caption.bold())
+                    .foregroundStyle(.secondary)
+                HStack(spacing: 6) {
+                    ForEach(EnergyLevel.allCases) { level in
+                        Button {
+                            selectedEnergy = selectedEnergy == level ? nil : level
+                        } label: {
+                            HStack(spacing: 4) {
+                                Image(systemName: level.icon)
+                                    .font(.caption2)
+                                Text(level.displayName)
+                                    .font(.caption)
+                            }
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 6)
+                            .background(selectedEnergy == level ? Color.green : Color.cardSurface)
+                            .foregroundStyle(selectedEnergy == level ? .white : .primary)
+                            .clipShape(Capsule())
+                            .shadow(color: .black.opacity(0.04), radius: 2, y: 1)
+                        }
+                    }
+                }
+            }
+
+            VStack(alignment: .leading, spacing: 6) {
+                Text("Mess tolerance")
+                    .font(.caption.bold())
+                    .foregroundStyle(.secondary)
+                Picker("", selection: $maxMessLevel) {
+                    Text("None").tag(0)
+                    Text("A little").tag(1)
+                    Text("Some").tag(2)
+                    Text("Bring it on").tag(3)
+                }
+                .pickerStyle(.segmented)
+            }
+
+            if hasActiveFilters {
+                Button {
+                    selectedSkills = []
+                    selectedEnergy = nil
+                    maxMessLevel = 3
+                } label: {
+                    Text("Reset filters")
+                        .font(.caption)
+                        .foregroundStyle(.green)
+                }
+            }
+        }
     }
 
     private var resultsCount: some View {
@@ -225,104 +300,3 @@ struct ActivityTag: View {
     }
 }
 
-// MARK: - Filter Sheet
-
-private struct FilterSheet: View {
-    @Binding var selectedSkills: Set<DevelopmentSkill>
-    @Binding var selectedEnergy: EnergyLevel?
-    @Binding var maxMessLevel: Int
-    @Environment(\.dismiss) private var dismiss
-
-    var body: some View {
-        NavigationStack {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 24) {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Skills")
-                            .font(.headline)
-                        Text("Pick as many as you like, or none for everything")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                        FlowLayout(spacing: 8) {
-                            ForEach(DevelopmentSkill.allCases) { skill in
-                                Button {
-                                    if selectedSkills.contains(skill) {
-                                        selectedSkills.remove(skill)
-                                    } else {
-                                        selectedSkills.insert(skill)
-                                    }
-                                } label: {
-                                    HStack(spacing: 4) {
-                                        Image(systemName: skill.icon)
-                                            .font(.caption)
-                                        Text(skill.displayName)
-                                            .font(.subheadline)
-                                    }
-                                    .padding(.horizontal, 12)
-                                    .padding(.vertical, 8)
-                                    .background(selectedSkills.contains(skill) ? Color.green : Color.secondaryFill)
-                                    .foregroundStyle(selectedSkills.contains(skill) ? .white : .primary)
-                                    .clipShape(Capsule())
-                                }
-                            }
-                        }
-                    }
-
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Energy level")
-                            .font(.headline)
-                        HStack(spacing: 8) {
-                            ForEach(EnergyLevel.allCases) { level in
-                                Button {
-                                    selectedEnergy = selectedEnergy == level ? nil : level
-                                } label: {
-                                    HStack(spacing: 4) {
-                                        Image(systemName: level.icon)
-                                            .font(.caption)
-                                        Text(level.displayName)
-                                            .font(.subheadline)
-                                    }
-                                    .padding(.horizontal, 12)
-                                    .padding(.vertical, 8)
-                                    .frame(maxWidth: .infinity)
-                                    .background(selectedEnergy == level ? Color.green : Color.secondaryFill)
-                                    .foregroundStyle(selectedEnergy == level ? .white : .primary)
-                                    .clipShape(Capsule())
-                                }
-                            }
-                        }
-                    }
-
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Mess tolerance")
-                            .font(.headline)
-                        Picker("Mess level", selection: $maxMessLevel) {
-                            Text("None").tag(0)
-                            Text("A little").tag(1)
-                            Text("Some").tag(2)
-                            Text("Bring it on").tag(3)
-                        }
-                        .pickerStyle(.segmented)
-                    }
-                }
-                .padding()
-            }
-            .navigationTitle("Filters")
-            #if os(iOS)
-            .navigationBarTitleDisplayMode(.inline)
-            #endif
-            .toolbar {
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") { dismiss() }
-                }
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Reset") {
-                        selectedSkills = []
-                        selectedEnergy = nil
-                        maxMessLevel = 3
-                    }
-                }
-            }
-        }
-    }
-}
