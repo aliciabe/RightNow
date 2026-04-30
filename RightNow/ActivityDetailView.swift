@@ -52,6 +52,7 @@ struct ActivityDetailView: View {
         .navigationTitle("")
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbarVisibility(.visible, for: .tabBar)
         #endif
         .toolbar {
             ToolbarItem(placement: .automatic) {

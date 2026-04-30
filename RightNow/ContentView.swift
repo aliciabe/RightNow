@@ -18,7 +18,7 @@ struct ContentView: View {
                         }
                     FavoritesView()
                         .tabItem {
-                            Label("Favorites", systemImage: "heart")
+                            Label("Favorites", systemImage: "heart.fill")
                         }
                         .badge(favorites.count)
                     InventoryView()
@@ -30,6 +30,7 @@ struct ContentView: View {
                             Label("Profile", systemImage: "person")
                         }
                 }
+                .tint(.green)
             }
         }
         .task {
