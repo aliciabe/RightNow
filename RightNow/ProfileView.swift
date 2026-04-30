@@ -83,22 +83,8 @@ struct ProfileView: View {
                 }
                 .padding(.leading, 4)
 
-                HStack(spacing: 16) {
-                    Text(shortAgeText(for: profile))
-                        .font(.title.bold())
-                        .frame(width: 72, alignment: .leading)
-
-                    GeometryReader { geo in
-                        ZStack(alignment: .leading) {
-                            RoundedRectangle(cornerRadius: 6)
-                                .fill(Color.green.opacity(0.2))
-                            RoundedRectangle(cornerRadius: 6)
-                                .fill(Color.green)
-                                .frame(width: geo.size.width * ageProgress(for: profile))
-                        }
-                    }
-                    .frame(height: 14)
-                }
+                Text(shortAgeText(for: profile))
+                    .font(.title.bold())
 
                 Button { adjustAge(profile: profile, byMonths: -1) } label: {
                     Image(systemName: "chevron.down")
@@ -159,11 +145,6 @@ struct ProfileView: View {
         let m = total % 12
         if y > 0 { return "\(y)y \(m)m" }
         return "\(m)m"
-    }
-
-    private func ageProgress(for profile: ChildProfile) -> Double {
-        let months = Double(profile.ageInMonths)
-        return max(0, min(1, (months - 12) / 24))
     }
 
     private func adjustAge(profile: ChildProfile, byMonths: Int) {
