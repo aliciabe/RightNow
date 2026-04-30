@@ -105,29 +105,27 @@ struct HomeView: View {
                 Text("Skills")
                     .font(.caption.bold())
                     .foregroundStyle(.secondary)
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 6) {
-                        ForEach(DevelopmentSkill.allCases) { skill in
-                            Button {
-                                if selectedSkills.contains(skill) {
-                                    selectedSkills.remove(skill)
-                                } else {
-                                    selectedSkills.insert(skill)
-                                }
-                            } label: {
-                                HStack(spacing: 4) {
-                                    Image(systemName: skill.icon)
-                                        .font(.caption2)
-                                    Text(skill.displayName)
-                                        .font(.caption)
-                                }
-                                .padding(.horizontal, 10)
-                                .padding(.vertical, 6)
-                                .background(selectedSkills.contains(skill) ? Color.green : Color.cardSurface)
-                                .foregroundStyle(selectedSkills.contains(skill) ? .white : .primary)
-                                .clipShape(Capsule())
-                                .shadow(color: .black.opacity(0.04), radius: 2, y: 1)
+                FlowLayout(spacing: 6) {
+                    ForEach(DevelopmentSkill.allCases) { skill in
+                        Button {
+                            if selectedSkills.contains(skill) {
+                                selectedSkills.remove(skill)
+                            } else {
+                                selectedSkills.insert(skill)
                             }
+                        } label: {
+                            HStack(spacing: 4) {
+                                Image(systemName: skill.icon)
+                                    .font(.caption2)
+                                Text(skill.displayName)
+                                    .font(.caption)
+                            }
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 6)
+                            .background(selectedSkills.contains(skill) ? Color.green : Color.cardSurface)
+                            .foregroundStyle(selectedSkills.contains(skill) ? .white : .primary)
+                            .clipShape(Capsule())
+                            .shadow(color: .black.opacity(0.04), radius: 2, y: 1)
                         }
                     }
                 }
