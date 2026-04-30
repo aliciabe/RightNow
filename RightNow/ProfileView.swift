@@ -3,12 +3,17 @@ import SwiftData
 
 struct ProfileView: View {
     @Query private var profiles: [ChildProfile]
-    @Query private var activityHistory: [ActivityHistory]
+    @Query(sort: \ActivityHistory.completedAt, order: .reverse) private var activityHistory: [ActivityHistory]
+    @Query private var activities: [Activity]
     @Query private var inventoryEntries: [InventoryEntry]
 
     @State private var showingEditSheet = false
 
     private var profile: ChildProfile? { profiles.first }
+
+    private var activityMap: [UUID: Activity] {
+        Dictionary(uniqueKeysWithValues: activities.map { ($0.id, $0) })
+    }
 
     private var trackedItemsCount: Int {
         inventoryEntries.filter { $0.status != .unknown }.count
@@ -109,17 +114,64 @@ struct ProfileView: View {
         }
     }
 
-    // MARK: - Menu Card
+    // MARK: - Activity History Card
 
     private var menuCard: some View {
-        VStack(spacing: 0) {
-            ProfileMenuRow(icon: "heart", label: "Favorite Activities", count: 0, color: .green)
-            Divider().padding(.leading, 64)
-            ProfileMenuRow(icon: "clock.arrow.circlepath", label: "Activity History",
-                           count: activityHistory.count, color: .green)
-            Divider().padding(.leading, 64)
-            ProfileMenuRow(icon: "gearshape", label: "Preferences", count: nil, color: .green)
+        VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                Image(systemName: "clock.arrow.circlepath")
+                    .foregroundStyle(.green)
+                Text("Activity History")
+                    .font(.headline)
+                Spacer()
+                Text("\(activityHistory.count)")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+
+            if activityHistory.isEmpty {
+                Text("No activities completed yet")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .padding(.vertical, 8)
+            } else {
+                ForEach(activityHistory) { entry in
+                    if let activity = activityMap[entry.activityID] {
+                        NavigationLink {
+                            ActivityDetailView(activity: activity)
+                        } label: {
+                            HStack(spacing: 12) {
+                                Circle()
+                                    .fill(Color.green.opacity(0.15))
+                                    .frame(width: 36, height: 36)
+                                    .overlay {
+                                        Image(systemName: "checkmark")
+                                            .font(.caption.bold())
+                                            .foregroundStyle(.green)
+                                    }
+
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text(activity.title)
+                                        .font(.subheadline.weight(.medium))
+                                        .foregroundStyle(.primary)
+                                    Text(entry.completedAt.formatted(date: .abbreviated, time: .omitted))
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                }
+
+                                Spacer()
+
+                                Image(systemName: "chevron.right")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary.opacity(0.5))
+                            }
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+            }
         }
+        .padding()
         .background(Color.cardSurface)
         .clipShape(RoundedRectangle(cornerRadius: 16))
         .shadow(color: .black.opacity(0.04), radius: 8, y: 2)

@@ -9,7 +9,7 @@ struct ActivityDetailView: View {
     @Query private var favorites: [FavoriteActivity]
 
     let activity: Activity
-    @State private var showingCompletedAlert = false
+    @State private var showingToast = false
 
     private var isFavorite: Bool {
         favorites.contains { $0.activityID == activity.id }
@@ -41,10 +41,10 @@ struct ActivityDetailView: View {
                 titleSection
                 tagsSection
                 materialsCard
+                completeButton
                 stepsCard
                 variationsSection
                 safetySection
-                completeButton
             }
             .padding()
         }
@@ -62,10 +62,22 @@ struct ActivityDetailView: View {
                 }
             }
         }
-        .alert("Nice!", isPresented: $showingCompletedAlert) {
-            Button("OK") { }
-        } message: {
-            Text("Great job spending time together!")
+        .overlay(alignment: .top) {
+            if showingToast {
+                HStack(spacing: 8) {
+                    Image(systemName: "checkmark.circle.fill")
+                    Text("Great job spending time together!")
+                }
+                .font(.subheadline.weight(.medium))
+                .foregroundStyle(.green)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 12)
+                .background(Color.cardSurface)
+                .clipShape(Capsule())
+                .shadow(color: .black.opacity(0.15), radius: 8, y: 4)
+                .transition(.move(edge: .top).combined(with: .opacity))
+                .padding(.top, 8)
+            }
         }
     }
 
@@ -221,7 +233,7 @@ struct ActivityDetailView: View {
         Button(action: markCompleted) {
             HStack {
                 Image(systemName: "checkmark.circle")
-                Text("We did this!")
+                Text("We did this")
             }
             .font(.headline)
             .frame(maxWidth: .infinity)
@@ -230,7 +242,6 @@ struct ActivityDetailView: View {
             .foregroundStyle(.white)
             .clipShape(RoundedRectangle(cornerRadius: 16))
         }
-        .padding(.top)
     }
 
     // MARK: - Actions
@@ -256,7 +267,11 @@ struct ActivityDetailView: View {
         if let profile = profiles.first {
             let history = ActivityHistory(activityID: activity.id, childProfileID: profile.id)
             modelContext.insert(history)
-            showingCompletedAlert = true
+            withAnimation(.spring(duration: 0.4)) { showingToast = true }
+            Task {
+                try? await Task.sleep(for: .seconds(2))
+                withAnimation(.easeOut(duration: 0.3)) { showingToast = false }
+            }
         }
     }
 }
