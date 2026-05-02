@@ -24,7 +24,7 @@ struct RecommendationEngine {
 
         return activities
             .filter { activity in
-                activity.minAgeMonths <= ageInMonths && activity.maxAgeMonths >= ageInMonths
+                activity.minAgeMonths <= ageInMonths + 3 && activity.maxAgeMonths >= ageInMonths - 3
             }
             .filter { activity in
                 selectedSkills.isEmpty || !Set(activity.skills).isDisjoint(with: selectedSkills)
