@@ -156,6 +156,48 @@ enum SeedData {
         static let emptyFullGame            = UUID(uuidString: "B0000001-0000-0000-0000-000000000064")!
         static let scarfTrail               = UUID(uuidString: "B0000001-0000-0000-0000-000000000065")!
         static let helpDressAnimal          = UUID(uuidString: "B0000001-0000-0000-0000-000000000066")!
+
+        // 40 new activities (20 high energy, 20 medium energy)
+        static let pillowCrashLanding       = UUID(uuidString: "B0000001-0000-0000-0000-000000000067")!
+        static let blanketDrag              = UUID(uuidString: "B0000001-0000-0000-0000-000000000068")!
+        static let ballBounceChase          = UUID(uuidString: "B0000001-0000-0000-0000-000000000069")!
+        static let animalStampede           = UUID(uuidString: "B0000001-0000-0000-0000-00000000006A")!
+        static let cushionLeapfrog          = UUID(uuidString: "B0000001-0000-0000-0000-00000000006B")!
+        static let scarfSpinDance           = UUID(uuidString: "B0000001-0000-0000-0000-00000000006C")!
+        static let towelBullRide            = UUID(uuidString: "B0000001-0000-0000-0000-00000000006D")!
+        static let boxTunnelCrawl           = UUID(uuidString: "B0000001-0000-0000-0000-00000000006E")!
+        static let sockSkating              = UUID(uuidString: "B0000001-0000-0000-0000-00000000006F")!
+        static let ballKickRelay            = UUID(uuidString: "B0000001-0000-0000-0000-000000000070")!
+        static let pillowSoccerKick         = UUID(uuidString: "B0000001-0000-0000-0000-000000000071")!
+        static let blanketParachute         = UUID(uuidString: "B0000001-0000-0000-0000-000000000072")!
+        static let bottleKnockdownSprint    = UUID(uuidString: "B0000001-0000-0000-0000-000000000073")!
+        static let laundryBasketPush        = UUID(uuidString: "B0000001-0000-0000-0000-000000000074")!
+        static let cushionMountainClimb     = UUID(uuidString: "B0000001-0000-0000-0000-000000000075")!
+        static let animalRunAndReturn       = UUID(uuidString: "B0000001-0000-0000-0000-000000000076")!
+        static let scarfChaseCatch          = UUID(uuidString: "B0000001-0000-0000-0000-000000000077")!
+        static let tubeJavelinToss          = UUID(uuidString: "B0000001-0000-0000-0000-000000000078")!
+        static let paperBallSnowFight       = UUID(uuidString: "B0000001-0000-0000-0000-000000000079")!
+        static let blockStackSprint         = UUID(uuidString: "B0000001-0000-0000-0000-00000000007A")!
+        static let ballRollAndFetch         = UUID(uuidString: "B0000001-0000-0000-0000-00000000007B")!
+        static let scarfLimboWalk           = UUID(uuidString: "B0000001-0000-0000-0000-00000000007C")!
+        static let sockTossBasket           = UUID(uuidString: "B0000001-0000-0000-0000-00000000007D")!
+        static let cushionBalancePath       = UUID(uuidString: "B0000001-0000-0000-0000-00000000007E")!
+        static let tubeBalanceWalk          = UUID(uuidString: "B0000001-0000-0000-0000-00000000007F")!
+        static let cottonBallBlowRelay      = UUID(uuidString: "B0000001-0000-0000-0000-000000000080")!
+        static let cerealShakeHunt          = UUID(uuidString: "B0000001-0000-0000-0000-000000000081")!
+        static let towelRowYourBoat         = UUID(uuidString: "B0000001-0000-0000-0000-000000000082")!
+        static let blanketGhostWalk         = UUID(uuidString: "B0000001-0000-0000-0000-000000000083")!
+        static let potLidCymbalMarch        = UUID(uuidString: "B0000001-0000-0000-0000-000000000084")!
+        static let spoonEggWalk             = UUID(uuidString: "B0000001-0000-0000-0000-000000000085")!
+        static let paperTearAndToss         = UUID(uuidString: "B0000001-0000-0000-0000-000000000086")!
+        static let waterSplashDance         = UUID(uuidString: "B0000001-0000-0000-0000-000000000087")!
+        static let spongeSqueezeRelay       = UUID(uuidString: "B0000001-0000-0000-0000-000000000088")!
+        static let muffinTinBeanBag         = UUID(uuidString: "B0000001-0000-0000-0000-000000000089")!
+        static let boxStepUpDown            = UUID(uuidString: "B0000001-0000-0000-0000-00000000008A")!
+        static let riceShakeAndSeek         = UUID(uuidString: "B0000001-0000-0000-0000-00000000008B")!
+        static let clothespinClipWalk       = UUID(uuidString: "B0000001-0000-0000-0000-00000000008C")!
+        static let colanderBallDrop         = UUID(uuidString: "B0000001-0000-0000-0000-00000000008D")!
+        static let emptyBottleMarch         = UUID(uuidString: "B0000001-0000-0000-0000-00000000008E")!
     }
 
     // MARK: - Load
@@ -2500,6 +2542,894 @@ enum SeedData {
                 harderVariation: "Try tucking the washcloth in to stay wrapped.",
                 stretchVariation: "Practice putting socks on and off the stuffed animal. Talk about each step: first the washcloth, then the sock hat. This mirrors getting dressed routines.",
                 estimatedMinutes: 10, setupMinutes: 0, setupComplexity: 0, messLevel: 0, supervision: .sameRoom
+            ),
+
+            // =============================================
+            // 20 HIGH ENERGY activities
+            // =============================================
+
+            // HIGH 1 — 12-24mo, grossMotor
+            Activity(
+                id: ActivityID.pillowCrashLanding,
+                title: "Pillow Crash Landing",
+                subtitle: "Supports whole-body coordination by falling safely onto pillows",
+                minAgeMonths: 12, maxAgeMonths: 24,
+                skills: [.grossMotor, .sensory],
+                energyLevel: .high,
+                materialIDs: [ItemID.pillows, ItemID.blankets],
+                stepsMarkdown: """
+                Pile several pillows on the floor with a blanket on top.
+                Hold your toddler's hands and let them stand near the pile.
+                Say "Ready, set, crash!" and guide them to fall onto the pillows.
+                Let them crawl back up and do it again.
+                """,
+                safetyNotes: ["Use only soft pillows on a carpeted surface", "Stay within arm's reach to guide each fall", "Clear all hard objects from the area"],
+                easierVariation: "Sit your toddler on the edge of the pile and let them lean backward into the pillows.",
+                harderVariation: "Let them take a few steps before crashing into the pillow pile.",
+                stretchVariation: "Build the pile taller and let your toddler climb to the top before crashing. Count down together from three before each jump.",
+                estimatedMinutes: 10, setupMinutes: 1, setupComplexity: 1, messLevel: 0, supervision: .armsReach
+            ),
+
+            // HIGH 2 — 18-36mo, grossMotor + socialEmotional
+            Activity(
+                id: ActivityID.blanketDrag,
+                title: "Blanket Drag Race",
+                subtitle: "Encourages trust and excitement by pulling your toddler on a blanket",
+                minAgeMonths: 18, maxAgeMonths: 36,
+                skills: [.grossMotor, .socialEmotional],
+                energyLevel: .high,
+                materialIDs: [ItemID.blankets, ItemID.stuffedAnimals],
+                stepsMarkdown: """
+                Place a blanket on a smooth floor surface.
+                Have your toddler sit in the middle holding a stuffed animal.
+                Slowly pull the blanket across the floor.
+                Speed up gradually as your toddler giggles.
+                """,
+                safetyNotes: ["Only pull on smooth, flat floors", "Pull slowly at first to gauge comfort", "Make sure toddler is seated securely"],
+                easierVariation: "Pull very slowly and keep the distance short.",
+                harderVariation: "Let your toddler try pulling the blanket with a stuffed animal passenger.",
+                stretchVariation: "Set up a simple course with tape lines on the floor. Pull the blanket along the path and name each turn together.",
+                estimatedMinutes: 10, setupMinutes: 1, setupComplexity: 0, messLevel: 0, supervision: .armsReach
+            ),
+
+            // HIGH 3 — 12-24mo, grossMotor + cognitive
+            Activity(
+                id: ActivityID.ballBounceChase,
+                title: "Ball Bounce and Chase",
+                subtitle: "Practices running and tracking by chasing a bouncing ball",
+                minAgeMonths: 12, maxAgeMonths: 24,
+                skills: [.grossMotor, .cognitive],
+                energyLevel: .high,
+                materialIDs: [ItemID.balls],
+                stepsMarkdown: """
+                Bounce a soft ball on the floor in a clear room.
+                Say "Go get it!" as it bounces away.
+                Cheer as your toddler runs or toddles after the ball.
+                Let them bring it back and bounce it again.
+                """,
+                safetyNotes: ["Use a soft ball that won't hurt if it hits anything", "Clear the room of obstacles before playing"],
+                easierVariation: "Roll the ball slowly instead of bouncing it.",
+                harderVariation: "Bounce the ball in different directions so your toddler has to change course.",
+                stretchVariation: "Take turns bouncing and chasing. Let your toddler try bouncing the ball for you to chase.",
+                estimatedMinutes: 10, setupMinutes: 0, setupComplexity: 0, messLevel: 0, supervision: .sameRoom
+            ),
+
+            // HIGH 4 — 18-36mo, grossMotor + language
+            Activity(
+                id: ActivityID.animalStampede,
+                title: "Animal Stampede",
+                subtitle: "Encourages whole-body movement by acting out animal walks",
+                minAgeMonths: 18, maxAgeMonths: 36,
+                skills: [.grossMotor, .language],
+                energyLevel: .high,
+                materialIDs: [ItemID.stuffedAnimals],
+                stepsMarkdown: """
+                Pick up a stuffed animal and say "Let's walk like a bear!"
+                Get on all fours and stomp around the room together.
+                Switch animals: "Now hop like a bunny!"
+                Try three or four different animal walks across the room.
+                """,
+                safetyNotes: ["Clear the floor of small objects", "Use a carpeted area for crawling comfort"],
+                easierVariation: "Stick to one animal walk and go slowly.",
+                harderVariation: "Add faster animals like a galloping horse or a leaping frog.",
+                stretchVariation: "Let your toddler pick which animal to be. Name the sounds each animal makes as you move together.",
+                estimatedMinutes: 10, setupMinutes: 0, setupComplexity: 0, messLevel: 0, supervision: .sameRoom
+            ),
+
+            // HIGH 5 — 24-36mo, grossMotor + cognitive
+            Activity(
+                id: ActivityID.cushionLeapfrog,
+                title: "Cushion Leap Path",
+                subtitle: "Supports jumping and planning by leaping between cushions",
+                minAgeMonths: 24, maxAgeMonths: 36,
+                skills: [.grossMotor, .cognitive],
+                energyLevel: .high,
+                materialIDs: [ItemID.cushions, ItemID.pillows],
+                stepsMarkdown: """
+                Lay cushions and pillows in a winding path on the floor.
+                Show your toddler how to jump from one to the next.
+                Say "Jump! Jump!" as they leap between cushions.
+                Rearrange the path to try a new route.
+                """,
+                safetyNotes: ["Place cushions close together at first", "Stay nearby to catch or steady your toddler", "Play on carpet or a soft surface"],
+                easierVariation: "Place cushions touching each other so it's more like stepping than jumping.",
+                harderVariation: "Space cushions further apart for bigger jumps.",
+                stretchVariation: "Number the cushions and call out which one to jump to next. This adds a listening and counting challenge.",
+                estimatedMinutes: 10, setupMinutes: 1, setupComplexity: 1, messLevel: 0, supervision: .armsReach
+            ),
+
+            // HIGH 6 — 12-24mo, grossMotor + sensory
+            Activity(
+                id: ActivityID.scarfSpinDance,
+                title: "Scarf Spin Dance",
+                subtitle: "Supports balance and rhythm by spinning and twirling with scarves",
+                minAgeMonths: 12, maxAgeMonths: 24,
+                skills: [.grossMotor, .sensory],
+                energyLevel: .high,
+                materialIDs: [ItemID.scarves],
+                stepsMarkdown: """
+                Give your toddler a scarf to hold in each hand.
+                Play music or sing a song together.
+                Show them how to spin slowly and wave the scarves.
+                Stomp your feet and sway side to side together.
+                """,
+                safetyNotes: ["Keep scarves away from neck", "Clear the area of furniture corners", "Spin slowly to avoid dizziness"],
+                easierVariation: "Just wave the scarves up and down while standing in place.",
+                harderVariation: "Add jumping and spinning in circles while waving the scarves.",
+                stretchVariation: "Freeze when the music stops and wave when it starts. Practice fast and slow movements together.",
+                estimatedMinutes: 10, setupMinutes: 0, setupComplexity: 0, messLevel: 0, supervision: .sameRoom
+            ),
+
+            // HIGH 7 — 15-30mo, grossMotor + socialEmotional
+            Activity(
+                id: ActivityID.towelBullRide,
+                title: "Towel Ride",
+                subtitle: "Supports core strength by holding on while being pulled on a towel",
+                minAgeMonths: 15, maxAgeMonths: 30,
+                skills: [.grossMotor, .socialEmotional],
+                energyLevel: .high,
+                materialIDs: [ItemID.towels],
+                stepsMarkdown: """
+                Spread a large towel flat on a smooth floor.
+                Have your toddler sit on the towel holding the front edge.
+                Slowly pull the towel across the floor.
+                Go faster as your toddler gets comfortable holding on.
+                """,
+                safetyNotes: ["Only do this on smooth floors, not carpet", "Pull gently and watch for signs of tipping", "Stay within arm's reach at all times"],
+                easierVariation: "Pull very slowly for just a few feet.",
+                harderVariation: "Add gentle turns and curves to the ride.",
+                stretchVariation: "Place a stuffed animal passenger next to your toddler and ask them to keep the animal from falling off.",
+                estimatedMinutes: 10, setupMinutes: 0, setupComplexity: 0, messLevel: 0, supervision: .armsReach
+            ),
+
+            // HIGH 8 — 18-36mo, grossMotor + sensory
+            Activity(
+                id: ActivityID.boxTunnelCrawl,
+                title: "Box Tunnel Crawl",
+                subtitle: "Encourages crawling and spatial exploration through a cardboard tunnel",
+                minAgeMonths: 18, maxAgeMonths: 36,
+                skills: [.grossMotor, .sensory],
+                energyLevel: .high,
+                materialIDs: [ItemID.cardboardBox, ItemID.balls],
+                stepsMarkdown: """
+                Open both ends of a large cardboard box to make a tunnel.
+                Place it on the floor and peek through one end.
+                Say "Can you crawl through?" and wave from the other side.
+                Roll a ball through the tunnel for them to chase.
+                """,
+                safetyNotes: ["Remove any staples or sharp edges from the box", "Make sure the box is stable and won't collapse"],
+                easierVariation: "Use a shorter box so the crawl is quick and easy.",
+                harderVariation: "Line up two boxes end-to-end for a longer tunnel.",
+                stretchVariation: "Place a stuffed animal at one end for your toddler to crawl to and rescue. Race each other through the tunnel.",
+                estimatedMinutes: 10, setupMinutes: 2, setupComplexity: 1, messLevel: 0, supervision: .sameRoom
+            ),
+
+            // HIGH 9 — 24-36mo, grossMotor + selfHelp
+            Activity(
+                id: ActivityID.sockSkating,
+                title: "Sock Skating",
+                subtitle: "Supports balance and leg coordination by sliding on socks on smooth floors",
+                minAgeMonths: 24, maxAgeMonths: 36,
+                skills: [.grossMotor, .selfHelp],
+                energyLevel: .high,
+                materialIDs: [ItemID.socks, ItemID.tape],
+                stepsMarkdown: """
+                Put on clean socks and find a smooth floor surface.
+                Mark a start line and finish line with tape.
+                Show your toddler how to slide their feet across the floor.
+                Slide together from start to finish and back.
+                """,
+                safetyNotes: ["Only on smooth, flat floors with no rugs to trip on", "Hold your toddler's hand at first", "Clear the path of all obstacles"],
+                easierVariation: "Hold both of your toddler's hands and shuffle together slowly.",
+                harderVariation: "Try sliding sideways or backward along the tape path.",
+                stretchVariation: "Make a curvy tape path and try to follow it while sliding. Count how many slides it takes to reach the end.",
+                estimatedMinutes: 10, setupMinutes: 1, setupComplexity: 1, messLevel: 0, supervision: .armsReach
+            ),
+
+            // HIGH 10 — 18-36mo, grossMotor + socialEmotional
+            Activity(
+                id: ActivityID.ballKickRelay,
+                title: "Ball Kick Relay",
+                subtitle: "Practices coordination and teamwork by kicking a ball back and forth",
+                minAgeMonths: 18, maxAgeMonths: 36,
+                skills: [.grossMotor, .socialEmotional],
+                energyLevel: .high,
+                materialIDs: [ItemID.balls, ItemID.laundryBasket],
+                stepsMarkdown: """
+                Place a laundry basket on its side as a goal.
+                Stand a short distance away with your toddler.
+                Take turns kicking the ball toward the basket goal.
+                Run after the ball together and kick again.
+                """,
+                safetyNotes: ["Use a soft ball to prevent injury", "Clear the area of breakable items", "Play on a flat surface"],
+                easierVariation: "Stand very close to the basket and kick gently.",
+                harderVariation: "Move the basket further away or make the opening smaller with cushions.",
+                stretchVariation: "Keep score together and celebrate each goal. Try kicking with your left foot, then your right foot.",
+                estimatedMinutes: 10, setupMinutes: 1, setupComplexity: 0, messLevel: 0, supervision: .sameRoom
+            ),
+
+            // HIGH 11 — 15-30mo, grossMotor
+            Activity(
+                id: ActivityID.pillowSoccerKick,
+                title: "Pillow Kick Around",
+                subtitle: "Supports leg strength by kicking a pillow across the room",
+                minAgeMonths: 15, maxAgeMonths: 30,
+                skills: [.grossMotor],
+                energyLevel: .high,
+                materialIDs: [ItemID.pillows],
+                stepsMarkdown: """
+                Place a small pillow on the floor.
+                Show your toddler how to kick it with their foot.
+                Chase the pillow together across the room.
+                Kick it back the other way and keep going.
+                """,
+                safetyNotes: ["Use a lightweight pillow", "Clear the room of obstacles", "Stay close to help with balance"],
+                easierVariation: "Push the pillow with your foot slowly and let your toddler stomp on it.",
+                harderVariation: "Try kicking the pillow toward a wall target.",
+                stretchVariation: "Take turns kicking and count how many kicks it takes to cross the room. Try using each foot.",
+                estimatedMinutes: 10, setupMinutes: 0, setupComplexity: 0, messLevel: 0, supervision: .sameRoom
+            ),
+
+            // HIGH 12 — 12-18mo, grossMotor + sensory
+            Activity(
+                id: ActivityID.blanketParachute,
+                title: "Blanket Parachute",
+                subtitle: "Supports visual tracking and excitement through a billowing blanket game",
+                minAgeMonths: 12, maxAgeMonths: 18,
+                skills: [.grossMotor, .sensory],
+                energyLevel: .high,
+                materialIDs: [ItemID.blankets, ItemID.cottonBalls],
+                stepsMarkdown: """
+                Hold the edges of a light blanket while your toddler sits nearby.
+                Billow the blanket up high and let it float down.
+                Toss a few cotton balls onto the blanket and billow again.
+                Let your toddler crawl under and feel the blanket float over them.
+                """,
+                safetyNotes: ["Use a lightweight, breathable blanket", "Never cover your toddler's face for more than a moment", "Keep cotton balls away from mouths"],
+                easierVariation: "Just billow the blanket up and down without any items on it.",
+                harderVariation: "Let your toddler help hold one edge of the blanket and shake it together.",
+                stretchVariation: "Place stuffed animals under the blanket and billow it to make them fly. Your toddler can chase and collect them.",
+                estimatedMinutes: 10, setupMinutes: 0, setupComplexity: 0, messLevel: 0, supervision: .armsReach
+            ),
+
+            // HIGH 13 — 24-36mo, grossMotor + cognitive
+            Activity(
+                id: ActivityID.bottleKnockdownSprint,
+                title: "Bottle Knockdown Sprint",
+                subtitle: "Practices speed and aiming by running to knock down bottle targets",
+                minAgeMonths: 24, maxAgeMonths: 36,
+                skills: [.grossMotor, .cognitive],
+                energyLevel: .high,
+                materialIDs: [ItemID.emptyBottles, ItemID.balls],
+                stepsMarkdown: """
+                Line up empty bottles at one end of the room.
+                Stand with your toddler at the other end.
+                Say "Ready, set, go!" and run together to the bottles.
+                Toss a ball to knock them down, then set them up again.
+                """,
+                safetyNotes: ["Use only empty plastic bottles", "Clear the running path of obstacles", "Use a soft ball"],
+                easierVariation: "Place the bottles closer so there's less running.",
+                harderVariation: "Spread the bottles out so each one requires a separate throw.",
+                stretchVariation: "Time each round and try to beat your previous time. Count how many bottles you knock down each round.",
+                estimatedMinutes: 10, setupMinutes: 1, setupComplexity: 0, messLevel: 0, supervision: .sameRoom
+            ),
+
+            // HIGH 14 — 12-24mo, grossMotor + selfHelp
+            Activity(
+                id: ActivityID.laundryBasketPush,
+                title: "Laundry Basket Push Race",
+                subtitle: "Supports walking confidence by pushing a basket across the room",
+                minAgeMonths: 12, maxAgeMonths: 24,
+                skills: [.grossMotor, .selfHelp],
+                energyLevel: .high,
+                materialIDs: [ItemID.laundryBasket, ItemID.stuffedAnimals],
+                stepsMarkdown: """
+                Turn a laundry basket upside down on a smooth floor.
+                Place a stuffed animal on top as a passenger.
+                Show your toddler how to push the basket forward.
+                Walk alongside cheering as they push it across the room.
+                """,
+                safetyNotes: ["Use a lightweight basket", "Play on a smooth, flat surface", "Stay close in case the basket tips"],
+                easierVariation: "Hold the basket steady while your toddler practices pushing.",
+                harderVariation: "Add more stuffed animals and push faster without tipping them off.",
+                stretchVariation: "Create a tape path on the floor and push the basket along the route. Name each stuffed animal passenger.",
+                estimatedMinutes: 10, setupMinutes: 1, setupComplexity: 0, messLevel: 0, supervision: .armsReach
+            ),
+
+            // HIGH 15 — 18-36mo, grossMotor + sensory
+            Activity(
+                id: ActivityID.cushionMountainClimb,
+                title: "Cushion Mountain Scramble",
+                subtitle: "Encourages climbing and body awareness by scaling a cushion mountain",
+                minAgeMonths: 18, maxAgeMonths: 36,
+                skills: [.grossMotor, .sensory],
+                energyLevel: .high,
+                materialIDs: [ItemID.cushions, ItemID.pillows, ItemID.blankets],
+                stepsMarkdown: """
+                Stack cushions and pillows into a tall mountain shape.
+                Drape a blanket over the top to hold it together.
+                Encourage your toddler to climb to the top.
+                Cheer when they reach the summit and slide back down.
+                """,
+                safetyNotes: ["Build on a soft surface like carpet", "Stay right beside your toddler as they climb", "Make sure the pile is stable"],
+                easierVariation: "Make a small pile with just two or three cushions.",
+                harderVariation: "Build the mountain higher and let your toddler find their own path up.",
+                stretchVariation: "Place a stuffed animal at the top as a prize to rescue. Rebuild the mountain in different shapes each time.",
+                estimatedMinutes: 10, setupMinutes: 2, setupComplexity: 1, messLevel: 0, supervision: .armsReach
+            ),
+
+            // HIGH 16 — 24-36mo, grossMotor + language
+            Activity(
+                id: ActivityID.animalRunAndReturn,
+                title: "Animal Rescue Run",
+                subtitle: "Practices running and following directions by rescuing hidden stuffed animals",
+                minAgeMonths: 24, maxAgeMonths: 36,
+                skills: [.grossMotor, .language],
+                energyLevel: .high,
+                materialIDs: [ItemID.stuffedAnimals, ItemID.laundryBasket],
+                stepsMarkdown: """
+                Hide three stuffed animals around the room in easy spots.
+                Place the laundry basket as the rescue base.
+                Say "Can you find the bear? Bring it to the basket!"
+                Let your toddler run to find each animal and bring it back.
+                """,
+                safetyNotes: ["Clear the running path of hazards", "Hide animals at toddler height only"],
+                easierVariation: "Hide the animals in plain sight and point to them.",
+                harderVariation: "Hide them in trickier spots and give verbal clues instead of pointing.",
+                stretchVariation: "Name each animal as it's rescued and make its sound together. Try hiding more animals each round.",
+                estimatedMinutes: 10, setupMinutes: 1, setupComplexity: 0, messLevel: 0, supervision: .sameRoom
+            ),
+
+            // HIGH 17 — 15-30mo, grossMotor + socialEmotional
+            Activity(
+                id: ActivityID.scarfChaseCatch,
+                title: "Scarf Chase and Catch",
+                subtitle: "Supports running confidence by chasing scarves thrown into the air",
+                minAgeMonths: 15, maxAgeMonths: 30,
+                skills: [.grossMotor, .socialEmotional],
+                energyLevel: .high,
+                materialIDs: [ItemID.scarves],
+                stepsMarkdown: """
+                Toss a scarf high into the air in an open room.
+                Say "Catch it before it falls!" as it floats down.
+                Chase the scarf together and try to grab it.
+                Take turns tossing and chasing the scarf.
+                """,
+                safetyNotes: ["Clear the room of hard furniture edges", "Keep scarves away from necks"],
+                easierVariation: "Drop the scarf from a low height so it's easy to catch.",
+                harderVariation: "Toss two scarves at once and try to catch both.",
+                stretchVariation: "Toss multiple scarves and count how many you caught. Name the colors as you chase each one.",
+                estimatedMinutes: 10, setupMinutes: 0, setupComplexity: 0, messLevel: 0, supervision: .sameRoom
+            ),
+
+            // HIGH 18 — 24-36mo, grossMotor + fineMotor
+            Activity(
+                id: ActivityID.tubeJavelinToss,
+                title: "Tube Javelin Throw",
+                subtitle: "Practices throwing form by tossing cardboard tubes across the room",
+                minAgeMonths: 24, maxAgeMonths: 36,
+                skills: [.grossMotor, .fineMotor],
+                energyLevel: .high,
+                materialIDs: [ItemID.paperTowelTubes, ItemID.laundryBasket],
+                stepsMarkdown: """
+                Give your toddler a paper towel tube.
+                Place a laundry basket a few feet away.
+                Show them how to throw the tube like a javelin toward the basket.
+                Run together to collect the tubes and throw again.
+                """,
+                safetyNotes: ["Use only cardboard tubes, not rigid tubes", "Make sure no one is in the throwing path"],
+                easierVariation: "Stand right next to the basket and drop the tubes in.",
+                harderVariation: "Move the basket further away or try underhand and overhand throws.",
+                stretchVariation: "Use three tubes and count how many land in the basket. Try throwing with each hand.",
+                estimatedMinutes: 10, setupMinutes: 0, setupComplexity: 0, messLevel: 0, supervision: .sameRoom
+            ),
+
+            // HIGH 19 — 18-36mo, grossMotor + socialEmotional
+            Activity(
+                id: ActivityID.paperBallSnowFight,
+                title: "Paper Ball Snowstorm",
+                subtitle: "Encourages active throwing and laughter with safe paper ball play",
+                minAgeMonths: 18, maxAgeMonths: 36,
+                skills: [.grossMotor, .socialEmotional],
+                energyLevel: .high,
+                materialIDs: [ItemID.paper, ItemID.laundryBasket],
+                stepsMarkdown: """
+                Crumple up several sheets of paper into balls together.
+                Toss them into the air and let them rain down.
+                Run around the room throwing them at each other gently.
+                Race to pick them all up and toss them in the laundry basket.
+                """,
+                safetyNotes: ["Use lightweight paper only", "Remove any staples from paper", "Clear fragile items from the area"],
+                easierVariation: "Just crumple and toss the balls into a pile together.",
+                harderVariation: "Set a timer and see how many balls you can get into the basket before it runs out.",
+                stretchVariation: "Divide the room in half and toss paper balls back and forth. Count who has fewer on their side when you stop.",
+                estimatedMinutes: 10, setupMinutes: 1, setupComplexity: 0, messLevel: 1, supervision: .sameRoom
+            ),
+
+            // HIGH 20 — 12-18mo, grossMotor + cognitive
+            Activity(
+                id: ActivityID.blockStackSprint,
+                title: "Block Fetch and Stack",
+                subtitle: "Supports running and stacking by fetching blocks one at a time",
+                minAgeMonths: 12, maxAgeMonths: 18,
+                skills: [.grossMotor, .cognitive],
+                energyLevel: .high,
+                materialIDs: [ItemID.blocks, ItemID.plasticBowl],
+                stepsMarkdown: """
+                Place blocks around the room in different spots.
+                Put a plastic bowl in the center as the collection point.
+                Say "Find a block!" and point toward one.
+                Let your toddler walk or toddle to fetch each block and bring it back.
+                """,
+                safetyNotes: ["Use large blocks that aren't choking hazards", "Clear the walking path of obstacles"],
+                easierVariation: "Place blocks very close together so the fetching is easy.",
+                harderVariation: "Spread blocks further apart and ask for specific colors.",
+                stretchVariation: "After collecting all the blocks, stack them into a tower together. Count each block as it goes on.",
+                estimatedMinutes: 10, setupMinutes: 1, setupComplexity: 0, messLevel: 0, supervision: .sameRoom
+            ),
+
+            // =============================================
+            // 20 MEDIUM ENERGY activities
+            // =============================================
+
+            // MEDIUM 1 — 12-24mo, fineMotor + sensory
+            Activity(
+                id: ActivityID.ballRollAndFetch,
+                title: "Ball Roll and Fetch",
+                subtitle: "Supports walking practice by rolling a ball and walking to get it",
+                minAgeMonths: 12, maxAgeMonths: 24,
+                skills: [.grossMotor, .fineMotor],
+                energyLevel: .medium,
+                materialIDs: [ItemID.balls],
+                stepsMarkdown: """
+                Sit on the floor and roll a ball a short distance away.
+                Encourage your toddler to walk over and pick it up.
+                Say "Bring it back!" and clap when they return.
+                Roll it in different directions each time.
+                """,
+                safetyNotes: ["Use a soft ball on a flat surface", "Clear the walking area of obstacles"],
+                easierVariation: "Roll the ball just a foot or two away.",
+                harderVariation: "Roll the ball further or behind a piece of furniture to find.",
+                stretchVariation: "Roll two balls in different directions and ask your toddler to choose which one to get first.",
+                estimatedMinutes: 10, setupMinutes: 0, setupComplexity: 0, messLevel: 0, supervision: .sameRoom
+            ),
+
+            // MEDIUM 2 — 18-36mo, grossMotor + cognitive
+            Activity(
+                id: ActivityID.scarfLimboWalk,
+                title: "Scarf Limbo Walk",
+                subtitle: "Practices bending and body awareness by walking under a held scarf",
+                minAgeMonths: 18, maxAgeMonths: 36,
+                skills: [.grossMotor, .cognitive],
+                energyLevel: .medium,
+                materialIDs: [ItemID.scarves],
+                stepsMarkdown: """
+                Hold a scarf stretched between your hands at toddler height.
+                Ask your toddler to walk underneath without touching it.
+                Lower the scarf a little each round.
+                Celebrate each successful pass with a cheer.
+                """,
+                safetyNotes: ["Use a soft scarf that won't hurt if it touches them", "Keep scarves away from the neck area"],
+                easierVariation: "Hold the scarf high so your toddler walks under easily.",
+                harderVariation: "Lower it so they have to duck or bend to get through.",
+                stretchVariation: "Take turns holding the scarf and walking under. Try going backward under the limbo scarf.",
+                estimatedMinutes: 10, setupMinutes: 0, setupComplexity: 0, messLevel: 0, supervision: .sameRoom
+            ),
+
+            // MEDIUM 3 — 24-36mo, fineMotor + grossMotor
+            Activity(
+                id: ActivityID.sockTossBasket,
+                title: "Sock Ball Basket Toss",
+                subtitle: "Practices aim and gentle throwing by tossing sock balls into containers",
+                minAgeMonths: 24, maxAgeMonths: 36,
+                skills: [.fineMotor, .grossMotor],
+                energyLevel: .medium,
+                materialIDs: [ItemID.socks, ItemID.plasticBowl, ItemID.laundryBasket],
+                stepsMarkdown: """
+                Roll clean socks into balls together.
+                Place the laundry basket and a bowl at different distances.
+                Take turns tossing sock balls into each target.
+                Count how many land in each container.
+                """,
+                safetyNotes: ["Use clean, soft socks", "Keep the tossing area clear of breakables"],
+                easierVariation: "Stand right next to the basket and drop the sock balls in.",
+                harderVariation: "Move the targets further away or use only the smaller bowl.",
+                stretchVariation: "Assign points to each container — one for the basket, two for the bowl. Add up your scores together.",
+                estimatedMinutes: 10, setupMinutes: 1, setupComplexity: 0, messLevel: 0, supervision: .sameRoom
+            ),
+
+            // MEDIUM 4 — 15-30mo, grossMotor + sensory
+            Activity(
+                id: ActivityID.cushionBalancePath,
+                title: "Cushion Balance Walk",
+                subtitle: "Supports balance by walking carefully along a line of cushions",
+                minAgeMonths: 15, maxAgeMonths: 30,
+                skills: [.grossMotor, .sensory],
+                energyLevel: .medium,
+                materialIDs: [ItemID.cushions],
+                stepsMarkdown: """
+                Lay cushions in a straight line on the floor.
+                Show your toddler how to walk along them like a bridge.
+                Hold their hand as they step from one cushion to the next.
+                Cheer when they reach the end of the path.
+                """,
+                safetyNotes: ["Place cushions on a soft surface", "Hold your toddler's hand for balance", "Keep cushions flat and stable"],
+                easierVariation: "Use large, flat cushions placed close together.",
+                harderVariation: "Add curves and turns to the cushion path.",
+                stretchVariation: "Try walking the path while carrying a stuffed animal. Walk forward, then try walking backward.",
+                estimatedMinutes: 10, setupMinutes: 1, setupComplexity: 0, messLevel: 0, supervision: .armsReach
+            ),
+
+            // MEDIUM 5 — 18-36mo, grossMotor + cognitive
+            Activity(
+                id: ActivityID.tubeBalanceWalk,
+                title: "Tube Balance Walk",
+                subtitle: "Supports balance and focus by walking with a tube on outstretched hands",
+                minAgeMonths: 18, maxAgeMonths: 36,
+                skills: [.grossMotor, .cognitive],
+                energyLevel: .medium,
+                materialIDs: [ItemID.paperTowelTubes, ItemID.tape],
+                stepsMarkdown: """
+                Give your toddler a paper towel tube to hold flat on their palms.
+                Mark a start and finish line with tape.
+                Walk slowly from start to finish without dropping the tube.
+                Celebrate when they make it across without it rolling off.
+                """,
+                safetyNotes: ["Use a clear, flat walking surface", "Stay close in case of stumbling"],
+                easierVariation: "Let them hold the tube with both hands wrapped around it.",
+                harderVariation: "Try balancing a cotton ball on top of the tube while walking.",
+                stretchVariation: "Add gentle turns in the walking path. Try walking at different speeds — slow like a turtle, then a bit faster.",
+                estimatedMinutes: 10, setupMinutes: 1, setupComplexity: 0, messLevel: 0, supervision: .sameRoom
+            ),
+
+            // MEDIUM 6 — 24-36mo, language + grossMotor
+            Activity(
+                id: ActivityID.cottonBallBlowRelay,
+                title: "Cotton Ball Blow Walk",
+                subtitle: "Practices breath control and movement by blowing cotton balls along a path",
+                minAgeMonths: 24, maxAgeMonths: 36,
+                skills: [.language, .grossMotor],
+                energyLevel: .medium,
+                materialIDs: [ItemID.cottonBalls, ItemID.tape],
+                stepsMarkdown: """
+                Make a lane on the floor with two lines of tape.
+                Place a cotton ball at the start of the lane.
+                Get on your hands and knees and blow the cotton ball forward.
+                Take turns blowing the cotton ball to the finish line.
+                """,
+                safetyNotes: ["Supervise closely to keep cotton balls out of mouths", "Not suitable for toddlers who still mouth objects"],
+                easierVariation: "Use a shorter lane and blow the cotton ball on a smooth table instead.",
+                harderVariation: "Add curves to the lane or race two cotton balls side by side.",
+                stretchVariation: "Place small cup goals at the end and try to blow the cotton ball into the cup. Count how many tries it takes.",
+                estimatedMinutes: 10, setupMinutes: 1, setupComplexity: 1, messLevel: 0, supervision: .armsReach
+            ),
+
+            // MEDIUM 7 — 18-36mo, sensory + cognitive
+            Activity(
+                id: ActivityID.cerealShakeHunt,
+                title: "Cereal Shake and Find",
+                subtitle: "Supports listening skills by shaking containers to find hidden cereal",
+                minAgeMonths: 18, maxAgeMonths: 36,
+                skills: [.sensory, .cognitive],
+                energyLevel: .medium,
+                materialIDs: [ItemID.cereal, ItemID.plasticContainers, ItemID.plasticCups],
+                stepsMarkdown: """
+                Hide cereal in one of three containers and close the lids.
+                Mix up the containers and set them in front of your toddler.
+                Let your toddler shake each one to listen for the cereal.
+                Open the one they choose to see if they found it.
+                """,
+                safetyNotes: ["Use large cereal pieces to reduce choking risk", "Secure lids tightly"],
+                easierVariation: "Use only two containers and shake them together first.",
+                harderVariation: "Put cereal in two containers and ask which one has more by shaking.",
+                stretchVariation: "Walk the containers to different parts of the room. Your toddler walks to each one and shakes it to find the cereal.",
+                estimatedMinutes: 10, setupMinutes: 1, setupComplexity: 1, messLevel: 0, supervision: .armsReach
+            ),
+
+            // MEDIUM 8 — 12-24mo, socialEmotional + language
+            Activity(
+                id: ActivityID.towelRowYourBoat,
+                title: "Towel Row Your Boat",
+                subtitle: "Supports bonding and rhythm by rowing together with a towel",
+                minAgeMonths: 12, maxAgeMonths: 24,
+                skills: [.socialEmotional, .language],
+                energyLevel: .medium,
+                materialIDs: [ItemID.towels],
+                stepsMarkdown: """
+                Sit on the floor facing your toddler with legs apart.
+                Hold a towel between you, each gripping one end.
+                Sing "Row, Row, Row Your Boat" while gently rocking.
+                Pull the towel back and forth in rhythm with the song.
+                """,
+                safetyNotes: ["Use a sturdy towel that won't tear", "Pull gently to avoid tipping your toddler"],
+                easierVariation: "Just hold hands and rock gently without the towel.",
+                harderVariation: "Speed up the rowing for faster verses of the song.",
+                stretchVariation: "Try other songs while rowing. Let your toddler lead the rocking speed. Add a stuffed animal passenger between you.",
+                estimatedMinutes: 10, setupMinutes: 0, setupComplexity: 0, messLevel: 0, supervision: .armsReach
+            ),
+
+            // MEDIUM 9 — 15-30mo, language + sensory
+            Activity(
+                id: ActivityID.blanketGhostWalk,
+                title: "Blanket Ghost Walk",
+                subtitle: "Encourages pretend play and movement by walking as a friendly ghost",
+                minAgeMonths: 15, maxAgeMonths: 30,
+                skills: [.language, .sensory],
+                energyLevel: .medium,
+                materialIDs: [ItemID.blankets],
+                stepsMarkdown: """
+                Drape a light blanket over your toddler's head like a ghost.
+                Say "Whooooo! Where's the ghost?" in a silly voice.
+                Walk slowly around the room together saying "boo!"
+                Pull the blanket off and laugh together.
+                """,
+                safetyNotes: ["Use a thin, breathable blanket only", "Never leave the blanket over your toddler's face unattended", "Guide your toddler to avoid bumping into things"],
+                easierVariation: "Just drape the blanket over their arms like a cape instead.",
+                harderVariation: "Walk around the room and try to gently surprise a stuffed animal.",
+                stretchVariation: "Take turns being the ghost and the one who gets spooked. Name what you see before the blanket goes on.",
+                estimatedMinutes: 10, setupMinutes: 0, setupComplexity: 0, messLevel: 0, supervision: .armsReach
+            ),
+
+            // MEDIUM 10 — 18-36mo, grossMotor + sensory + language
+            Activity(
+                id: ActivityID.potLidCymbalMarch,
+                title: "Pot Lid Cymbal March",
+                subtitle: "Supports rhythm and marching by clanging pot lids while walking",
+                minAgeMonths: 18, maxAgeMonths: 36,
+                skills: [.grossMotor, .sensory, .language],
+                energyLevel: .medium,
+                materialIDs: [ItemID.potWithLid, ItemID.woodenSpoon],
+                stepsMarkdown: """
+                Give your toddler a pot lid to hold by the handle.
+                Show them how to tap it with a wooden spoon while walking.
+                March around the room together making music.
+                Sing a simple marching song while you walk and tap.
+                """,
+                safetyNotes: ["Use lightweight pot lids with cool handles", "March slowly to avoid tripping", "Keep noise level comfortable"],
+                easierVariation: "Stand in place and tap the lid without marching.",
+                harderVariation: "March in patterns — circles, zigzags, or figure eights.",
+                stretchVariation: "March to different rooms and name what you see in each one. Try quiet taps and loud taps as you go.",
+                estimatedMinutes: 10, setupMinutes: 0, setupComplexity: 0, messLevel: 0, supervision: .sameRoom
+            ),
+
+            // MEDIUM 11 — 24-36mo, fineMotor + cognitive
+            Activity(
+                id: ActivityID.spoonEggWalk,
+                title: "Spoon and Ball Walk",
+                subtitle: "Practices balance and focus by carrying a ball on a spoon while walking",
+                minAgeMonths: 24, maxAgeMonths: 36,
+                skills: [.fineMotor, .cognitive],
+                energyLevel: .medium,
+                materialIDs: [ItemID.woodenSpoon, ItemID.cottonBalls, ItemID.tape],
+                stepsMarkdown: """
+                Place a cotton ball on a wooden spoon.
+                Mark a start and finish line with tape.
+                Walk slowly from start to finish without dropping the cotton ball.
+                If it falls, pick it up and keep going.
+                """,
+                safetyNotes: ["Clear the walking path of tripping hazards", "Supervise cotton ball use closely"],
+                easierVariation: "Use a bigger spoon or a small plastic bowl to carry the cotton ball.",
+                harderVariation: "Walk faster or add turns to the route.",
+                stretchVariation: "Try carrying two cotton balls at once. Walk the path forward, then try it backward.",
+                estimatedMinutes: 10, setupMinutes: 1, setupComplexity: 0, messLevel: 0, supervision: .sameRoom
+            ),
+
+            // MEDIUM 12 — 12-18mo, fineMotor + sensory
+            Activity(
+                id: ActivityID.paperTearAndToss,
+                title: "Paper Tear and Toss",
+                subtitle: "Supports hand strength by tearing paper and tossing the pieces",
+                minAgeMonths: 12, maxAgeMonths: 18,
+                skills: [.fineMotor, .sensory],
+                energyLevel: .medium,
+                materialIDs: [ItemID.paper, ItemID.plasticBowl],
+                stepsMarkdown: """
+                Give your toddler a sheet of paper.
+                Show them how to tear it into pieces.
+                Toss the pieces into the air like confetti.
+                Collect the pieces together into a bowl.
+                """,
+                safetyNotes: ["Watch for paper going into mouths", "Use plain paper without ink or coating"],
+                easierVariation: "Start small tears at the edge of the paper for your toddler to finish.",
+                harderVariation: "Try tearing the paper into smaller and smaller pieces.",
+                stretchVariation: "Sort the torn pieces by size — big pile and small pile. Scoop them into the bowl with your hands.",
+                estimatedMinutes: 10, setupMinutes: 0, setupComplexity: 0, messLevel: 1, supervision: .armsReach
+            ),
+
+            // MEDIUM 13 — 18-36mo, sensory + grossMotor
+            Activity(
+                id: ActivityID.waterSplashDance,
+                title: "Water Splash Stomp",
+                subtitle: "Supports sensory exploration by stomping and splashing in shallow water",
+                minAgeMonths: 18, maxAgeMonths: 36,
+                skills: [.sensory, .grossMotor],
+                energyLevel: .medium,
+                materialIDs: [ItemID.water, ItemID.towels, ItemID.plasticBowl],
+                stepsMarkdown: """
+                Place a shallow layer of water in a large plastic bowl or tray.
+                Set towels around the area to catch splashes.
+                Let your toddler stomp their feet in the water.
+                Splash together and talk about how the water feels.
+                """,
+                safetyNotes: ["Use only a small amount of water", "Keep towels nearby for drying", "Stay within arm's reach at all times", "Dry up spills to prevent slipping"],
+                easierVariation: "Just let your toddler dip their toes and splash with their hands.",
+                harderVariation: "Add cups for scooping and pouring while standing in the water.",
+                stretchVariation: "Stomp to a rhythm — fast stomps, slow stomps. Talk about the sounds each type of stomp makes.",
+                estimatedMinutes: 10, setupMinutes: 2, setupComplexity: 1, messLevel: 2, supervision: .armsReach
+            ),
+
+            // MEDIUM 14 — 24-36mo, fineMotor + selfHelp
+            Activity(
+                id: ActivityID.spongeSqueezeRelay,
+                title: "Sponge Squeeze Pour",
+                subtitle: "Practices hand strength by squeezing water from sponges into cups",
+                minAgeMonths: 24, maxAgeMonths: 36,
+                skills: [.fineMotor, .selfHelp],
+                energyLevel: .medium,
+                materialIDs: [ItemID.sponge, ItemID.plasticCups, ItemID.water, ItemID.towels],
+                stepsMarkdown: """
+                Fill one cup with a small amount of water.
+                Dip a sponge in the water and squeeze it out.
+                Show your toddler how to squeeze the sponge into an empty cup.
+                See how much water you can move from one cup to the other.
+                """,
+                safetyNotes: ["Use only a small amount of water", "Keep towels handy for spills", "Supervise water play closely"],
+                easierVariation: "Just squeeze the sponge into the same cup of water.",
+                harderVariation: "Try squeezing the sponge with just one hand.",
+                stretchVariation: "Use two sponges and race to fill your cups. Count how many squeezes it takes to fill each cup.",
+                estimatedMinutes: 10, setupMinutes: 1, setupComplexity: 1, messLevel: 2, supervision: .armsReach
+            ),
+
+            // MEDIUM 15 — 15-30mo, fineMotor + cognitive
+            Activity(
+                id: ActivityID.muffinTinBeanBag,
+                title: "Muffin Tin Drop Game",
+                subtitle: "Supports aim and counting by dropping items into muffin tin cups",
+                minAgeMonths: 15, maxAgeMonths: 30,
+                skills: [.fineMotor, .cognitive],
+                energyLevel: .medium,
+                materialIDs: [ItemID.muffinTin, ItemID.cottonBalls, ItemID.dryPasta],
+                stepsMarkdown: """
+                Place a muffin tin on the floor in front of your toddler.
+                Give them a handful of cotton balls and pasta pieces.
+                Show them how to stand over the tin and drop items in.
+                Try aiming for specific cups and count what lands.
+                """,
+                safetyNotes: ["Supervise pasta use to prevent mouthing", "Use large pasta shapes only"],
+                easierVariation: "Sit close and place items directly into the cups.",
+                harderVariation: "Stand further away and try to drop items from higher up.",
+                stretchVariation: "Sort cotton balls into one row and pasta into another. Count how many are in each cup when finished.",
+                estimatedMinutes: 10, setupMinutes: 1, setupComplexity: 0, messLevel: 1, supervision: .armsReach
+            ),
+
+            // MEDIUM 16 — 12-24mo, grossMotor + selfHelp
+            Activity(
+                id: ActivityID.boxStepUpDown,
+                title: "Box Step Up and Down",
+                subtitle: "Supports climbing confidence by stepping onto and off a sturdy box",
+                minAgeMonths: 12, maxAgeMonths: 24,
+                skills: [.grossMotor, .selfHelp],
+                energyLevel: .medium,
+                materialIDs: [ItemID.cardboardBox],
+                stepsMarkdown: """
+                Place a sturdy, low cardboard box upside down on the floor.
+                Hold your toddler's hands and help them step up onto the box.
+                Say "Up, up, up!" as they climb on.
+                Help them step back down and say "Down we go!"
+                """,
+                safetyNotes: ["Use a very sturdy box that won't collapse", "Hold your toddler's hands throughout", "Place the box on a non-slip surface"],
+                easierVariation: "Use a very flat box that's only a couple inches high.",
+                harderVariation: "Let them step up with less hand-holding as they get confident.",
+                stretchVariation: "Step up, clap once, then step down. Add more claps each round. Practice saying 'up' and 'down' together.",
+                estimatedMinutes: 10, setupMinutes: 1, setupComplexity: 0, messLevel: 0, supervision: .armsReach
+            ),
+
+            // MEDIUM 17 — 18-36mo, sensory + language
+            Activity(
+                id: ActivityID.riceShakeAndSeek,
+                title: "Rice Shake and Seek",
+                subtitle: "Supports sensory awareness by shaking bottles to find hidden items in rice",
+                minAgeMonths: 18, maxAgeMonths: 36,
+                skills: [.sensory, .language],
+                energyLevel: .medium,
+                materialIDs: [ItemID.rice, ItemID.emptyBottles, ItemID.plasticBowl],
+                stepsMarkdown: """
+                Pour rice into a plastic bowl as a sensory bin.
+                Hide a few small items in the rice.
+                Let your toddler dig around to find hidden treasures.
+                Name each item together as it's discovered.
+                """,
+                safetyNotes: ["Supervise closely to prevent rice from going in mouths", "Use items large enough to not be choking hazards"],
+                easierVariation: "Hide items only halfway so they stick out of the rice.",
+                harderVariation: "Hide more items and name each one before digging.",
+                stretchVariation: "After finding all items, scoop the rice into an empty bottle using a cup. Name the items again from memory.",
+                estimatedMinutes: 10, setupMinutes: 2, setupComplexity: 1, messLevel: 2, supervision: .armsReach
+            ),
+
+            // MEDIUM 18 — 24-36mo, fineMotor + cognitive
+            Activity(
+                id: ActivityID.clothespinClipWalk,
+                title: "Clothespin Clip and Walk",
+                subtitle: "Practices pinch grip by clipping clothespins around the room",
+                minAgeMonths: 24, maxAgeMonths: 36,
+                skills: [.fineMotor, .cognitive],
+                energyLevel: .medium,
+                materialIDs: [ItemID.clothespins, ItemID.plasticBowl, ItemID.cardboardBox],
+                stepsMarkdown: """
+                Put clothespins in a plastic bowl to carry around.
+                Walk around the room looking for things to clip them onto.
+                Clip clothespins to the edge of a cardboard box, a towel, or a cup.
+                Walk to each spot and count how many you clipped.
+                """,
+                safetyNotes: ["Supervise clothespin use to prevent pinching", "Use spring clothespins appropriate for small hands"],
+                easierVariation: "Clip clothespins onto just the edge of the bowl while sitting.",
+                harderVariation: "Clip them in a pattern — one on the box, one on the bowl, repeat.",
+                stretchVariation: "Place the bowl across the room and walk back and forth to get one clothespin at a time. Count as you go.",
+                estimatedMinutes: 10, setupMinutes: 1, setupComplexity: 0, messLevel: 0, supervision: .armsReach
+            ),
+
+            // MEDIUM 19 — 12-18mo, cognitive + fineMotor
+            Activity(
+                id: ActivityID.colanderBallDrop,
+                title: "Colander Ball Drop",
+                subtitle: "Supports problem-solving by pushing balls through colander holes",
+                minAgeMonths: 12, maxAgeMonths: 18,
+                skills: [.cognitive, .fineMotor],
+                energyLevel: .medium,
+                materialIDs: [ItemID.colander, ItemID.cottonBalls, ItemID.plasticBowl],
+                stepsMarkdown: """
+                Place a colander upside down over a plastic bowl.
+                Give your toddler cotton balls to push through the holes.
+                Let them poke cotton balls through and peek to see them appear below.
+                Lift the colander together to find all the balls.
+                """,
+                safetyNotes: ["Supervise cotton ball use closely", "Use a colander with holes big enough for cotton balls"],
+                easierVariation: "Hold the colander and point to the biggest holes for pushing through.",
+                harderVariation: "Try pushing small pieces of tissue paper through the holes too.",
+                stretchVariation: "Count the cotton balls as they go through. Lift the colander and count again to see if the number matches.",
+                estimatedMinutes: 10, setupMinutes: 1, setupComplexity: 0, messLevel: 0, supervision: .armsReach
+            ),
+
+            // MEDIUM 20 — 15-30mo, grossMotor + language + socialEmotional
+            Activity(
+                id: ActivityID.emptyBottleMarch,
+                title: "Bottle Shaker March",
+                subtitle: "Encourages marching and rhythm by walking with homemade shakers",
+                minAgeMonths: 15, maxAgeMonths: 30,
+                skills: [.grossMotor, .language, .socialEmotional],
+                energyLevel: .medium,
+                materialIDs: [ItemID.emptyBottles, ItemID.rice, ItemID.dryPasta],
+                stepsMarkdown: """
+                Fill an empty bottle partway with rice or dry pasta and seal tightly.
+                Give one shaker to your toddler and keep one for yourself.
+                March around the room together shaking your instruments.
+                Sing a favorite song and shake to the beat.
+                """,
+                safetyNotes: ["Seal bottle caps tightly with tape if needed", "Make sure bottles are clean and dry before filling", "Supervise to ensure bottles stay closed"],
+                easierVariation: "Sit in place and shake the bottles without marching.",
+                harderVariation: "March faster and try different rhythms — fast shakes, slow shakes.",
+                stretchVariation: "March to different rooms and name things you see along the way. Stop and start the shaking to practice freeze and go.",
+                estimatedMinutes: 10, setupMinutes: 2, setupComplexity: 1, messLevel: 0, supervision: .sameRoom
             ),
         ]
     }
